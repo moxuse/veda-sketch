@@ -6,8 +6,8 @@ varying vec3 mPos;
 uniform vec2 resolution;
 // uniform vec2 mouse;
 uniform float time;
-uniform sampler2D osc_osc1;
-uniform sampler2D osc_osc2;
+uniform sampler2D osc_sample1;
+uniform sampler2D osc_sample2;
 
 const float PI = 3.14159265;
 const float angle = 45.0;
@@ -67,8 +67,8 @@ vec3 getNormal(vec3 p) {
 
 void main(void){
   vec2 uv = gl_FragCoord.xy / resolution;
-  vec4 tex_osc = texture2D(osc_osc1, uv);
-  vec4 tex_osc2 = texture2D(osc_osc2, uv);
+  vec4 tex_osc = texture2D(osc_sample1, uv);
+  vec4 tex_osc2 = texture2D(osc_sample2, uv);
   // fragment position
   vec2 p = (gl_FragCoord.xy * 3.0 - resolution) / min(resolution.x, resolution.y);
 
